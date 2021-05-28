@@ -19,8 +19,6 @@ namespace Voice_Recognition_WPF.Scripts.Managers
             SpeechRecognitionEngine = new SpeechRecognitionEngine();
             SpeechSynthesizer = new SpeechSynthesizer();
 
-            SpeechRecognitionEngine.SetInputToNull();
-
             Initialized = true;
         }
 

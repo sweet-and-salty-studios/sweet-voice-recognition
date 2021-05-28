@@ -7,37 +7,35 @@
         mc:Ignorable="d"
         Title="Sweet Voice Recognition" Height="450" Width="800">
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20" />
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="20" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="20" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="20" />
-        </Grid.RowDefinitions>
+    <Border Padding="10">
+        <StackPanel>
 
-        <TextBlock 
-            Grid.Column="1" 
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <TextBlock 
+            Grid.Column="0" 
             Grid.Row="1" 
             FontSize="28" 
             Text="Sweet Voice Recognition" 
             HorizontalAlignment="Center" 
             VerticalAlignment="Center" 
             FontWeight="Bold"/>
-        
-        <TextBlock 
-            Grid.Column="4" 
+
+                <TextBlock 
+            Grid.Column="1" 
             Grid.Row="1" 
             FontSize="28" 
             Text= "{Binding Path=BoundText, Mode=TwoWay}"
@@ -46,10 +44,12 @@
             FontWeight="Bold"/>
 
 
-        <local2:CustomToggleButton 
-            Grid.Column="1"
-            Grid.Row="6"
+                <local2:CustomToggleButton 
+            Grid.Column="0"
+            Grid.Row="2"
             Checked="CustomToggleButton_Checked" Unchecked="CustomToggleButton_Unchecked">
-        </local2:CustomToggleButton>
-    </Grid>
+                </local2:CustomToggleButton>
+            </Grid>
+        </StackPanel>
+    </Border>
 </Window>

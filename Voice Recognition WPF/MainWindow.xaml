@@ -3,41 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Voice_Recognition_WPF" xmlns:local1="clr-namespace:Voice_Recognition_WPF.Scripts"
+        xmlns:local="clr-namespace:Voice_Recognition_WPF" xmlns:local1="clr-namespace:Voice_Recognition_WPF.Scripts" xmlns:local2="clr-namespace:Voice_Recognition_WPF.Scripts.Elements"
         mc:Ignorable="d"
         Title="Sweet Voice Recognition" Height="450" Width="800">
-    <Window.Resources>
-        <Style x:Key="CustomToggleButtonStyle1" TargetType="{x:Type local1:CustomToggleButton}">
-
-            <Setter Property="MaxHeight" Value="60" />
-            <Setter Property="MinHeight" Value="60" />
-            <Setter Property="MaxWidth" Value="120" />
-            <Setter Property="MinWidth" Value="120" />
-
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type local1:CustomToggleButton}">
-                        <Border x:Name="ToggleBackground" CornerRadius="30" Background="#FFC1C1C1">
-                            <Ellipse x:Name="Knob" 
-                                Fill="#FF323263"
-                                HorizontalAlignment="Left"
-                                Margin="4"
-                                Width="50"
-                                Height="50">
-
-                            </Ellipse>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsChecked" Value="true">
-                                <Setter TargetName="Knob" Property="HorizontalAlignment" Value="Right"/>
-                                <Setter TargetName="ToggleBackground" Property="Background" Value="#FF7BFF7B" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -67,11 +35,21 @@
             HorizontalAlignment="Center" 
             VerticalAlignment="Center" 
             FontWeight="Bold"/>
+        
+        <TextBlock 
+            Grid.Column="4" 
+            Grid.Row="1" 
+            FontSize="28" 
+            Text= "{Binding Path=BoundText, Mode=TwoWay}"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center" 
+            FontWeight="Bold"/>
 
-        <local1:CustomToggleButton 
+
+        <local2:CustomToggleButton 
             Grid.Column="1"
             Grid.Row="6"
-            Style="{DynamicResource CustomToggleButtonStyle1}" Checked="CustomToggleButton_Checked">
-        </local1:CustomToggleButton>
+            Checked="CustomToggleButton_Checked" Unchecked="CustomToggleButton_Unchecked">
+        </local2:CustomToggleButton>
     </Grid>
 </Window>

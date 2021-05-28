@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using System.Speech.Recognition;
+using Voice_Recognition_WPF.Scripts.Managers;
+using System;
+using System.Speech.Synthesis;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace Voice_Recognition_WPF
 {
@@ -23,11 +16,20 @@ namespace Voice_Recognition_WPF
         public MainWindow()
         {
             InitializeComponent();
+
+            VoiceRecognitionManager.Initialize();
+            VoiceRecognitionManager.SpeechSynthesizer.Speak("Sweet & Salty Studios");
+
         }
 
         private void CustomToggleButton_Checked(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("FOO");
+            VoiceRecognitionManager.SpeechRecognitionEngine.RecognizeAsync(RecognizeMode.Multiple);
+        }
+
+        private void CustomToggleButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            VoiceRecognitionManager.SpeechRecognitionEngine.RecognizeAsyncStop();
         }
     }
 }

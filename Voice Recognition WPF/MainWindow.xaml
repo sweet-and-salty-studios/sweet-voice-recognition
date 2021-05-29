@@ -4,51 +4,75 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Voice_Recognition_WPF" xmlns:local1="clr-namespace:Voice_Recognition_WPF.Scripts" xmlns:local2="clr-namespace:Voice_Recognition_WPF.Scripts.Elements"
-        mc:Ignorable="d"
+        mc:Ignorable="d" FontSize="20" WindowStartupLocation="CenterScreen" 
         Title="Sweet Voice Recognition" Height="450" Width="800">
 
     <Border Padding="10">
         <StackPanel>
-
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
                 <TextBlock 
-            Grid.Column="0" 
-            Grid.Row="1" 
-            FontSize="28" 
-            Text="Sweet Voice Recognition" 
-            HorizontalAlignment="Center" 
-            VerticalAlignment="Center" 
-            FontWeight="Bold"/>
+                    Grid.Column="0" 
+                    Grid.Row="1" 
+                    Grid.ColumnSpan="3"
+                    FontSize="28" 
+                    Text="Sweet Voice Recognition" 
+                    FontWeight="Bold"/>
 
                 <TextBlock 
-            Grid.Column="1" 
-            Grid.Row="1" 
-            FontSize="28" 
-            Text= "{Binding Path=BoundText, Mode=TwoWay}"
-            HorizontalAlignment="Center" 
-            VerticalAlignment="Center" 
-            FontWeight="Bold"/>
-
+                    Grid.Column="1" 
+                    Grid.Row="1" 
+                    FontSize="28" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" 
+                    FontWeight="Bold"/>
 
                 <local2:CustomToggleButton 
-            Grid.Column="0"
-            Grid.Row="2"
-            Checked="CustomToggleButton_Checked" Unchecked="CustomToggleButton_Unchecked">
+                    Grid.Column="0"
+                    Grid.Row="2"
+                    Margin="20"
+                    Checked="CustomToggleButton_Checked" Unchecked="CustomToggleButton_Unchecked">
                 </local2:CustomToggleButton>
+
+                <!--<ComboBox x:Name="myComboBox">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding CountryTitle}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>-->
+
+                <Button  
+                    x:Name="SpeakButton"
+                    Grid.Column="0"
+                    Grid.Row="5"
+                    Margin="20"
+                    >
+                    SPEAK
+                </Button>
+
+                <TextBox
+                    x:Name="TextBox"
+                    Grid.Column="1"
+                    Grid.Row="5"
+                    Grid.ColumnSpan="4"
+                    />
             </Grid>
         </StackPanel>
     </Border>

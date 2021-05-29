@@ -2,9 +2,6 @@
 using System.Speech.Recognition;
 using Voice_Recognition_WPF.Scripts.Managers;
 using System;
-using System.Speech.Synthesis;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 
 namespace Voice_Recognition_WPF
 {
@@ -18,18 +15,28 @@ namespace Voice_Recognition_WPF
             InitializeComponent();
 
             VoiceRecognitionManager.Initialize();
-            VoiceRecognitionManager.SpeechSynthesizer.Speak("Sweet & Salty Studios");
+            VoiceRecognitionManager.SpeechSynthesizer.SpeakAsync("Sweet & Salty Studios");
 
+            SpeakButton.Click += SpeakButton_Click;
+
+            DataContext = this;
         }
 
+        private void SpeakButton_Click(object sender, RoutedEventArgs e)
+        {
+            VoiceRecognitionManager.SpeechSynthesizer.SpeakAsync(TextBox.Text);
+        }
+        
         private void CustomToggleButton_Checked(object sender, RoutedEventArgs e)
         {
             VoiceRecognitionManager.SpeechRecognitionEngine.RecognizeAsync(RecognizeMode.Multiple);
+            VoiceRecognitionManager.SpeechSynthesizer.SpeakAsync("Toggle checked");
         }
 
         private void CustomToggleButton_Unchecked(object sender, RoutedEventArgs e)
         {
             VoiceRecognitionManager.SpeechRecognitionEngine.RecognizeAsyncStop();
+            VoiceRecognitionManager.SpeechSynthesizer.SpeakAsync("Toggle unchecked");
         }
     }
 }
